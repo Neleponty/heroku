@@ -1,0 +1,28 @@
+{% if vacancies.count == 0 %}
+        {% include 'empty_query.html' %}
+{% else %}
+    <!-- vacancy as html -->
+    {% for vacancy in vacancies_list %}
+        {{ vacancy }}
+    {% endfor %}
+
+    <script>
+        function incrementFeedback(self) {
+            $.ajax({
+                url: '/vacancy/registryFeedback?vacancyId=' + $(self).attr('id'),
+                type: "GET",
+                success: function (data) {
+                    if (data['success']) {
+                        alert('Отклик успешно отправлен');
+                        var flag = $(self).parent();
+                        $(self).remove();
+                        flag.append("<span>Вы успешно откликнулись на вакансию</span>")
+                    }
+                    else {
+                        window.location.replace("{{ redirect_page }}")
+                    }
+                }
+            })
+        }
+    </script>
+{% endif %}

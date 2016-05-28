@@ -1,0 +1,24 @@
+{% extends "registration/formset_branch.html" %}
+{% load staticfiles %}
+{% block head_links %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    {% load staticfiles %}
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "design_files/css/FormStyle.css" %}"/>
+
+    {% bootstrap_javascript jquery=0 %}
+    {% load bootstrap_dynamic_formsets %}
+{% endblock %}
+{% block inform %}
+    <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_dynamic_formset formset can_delete=True layout="horizontal" %}
+        <button type="submit" id="form-submit" class="btn btn-success">Submit</button>
+    </form>
+{% endblock %}
+{% block script %}
+{% endblock %}
+

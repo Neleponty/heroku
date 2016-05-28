@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<img width="100px" height="100px" src="{% if user.avatar.url|length > 0 %}
+                {{ user.avatar.url }}
+            {% else %}
+                {% static "design_files/resources/default.jpg" %}
+            {% endif %} ">
+<br>
+<span style="margin-left:10px">name: {{ user.first_name }}</span><br>
+<span style="margin-left:10px">date_joined:{{ user.date_joined }}</span><br>
+<span style="margin-left:10px">email:{{ user.email }}</span><br>
+<a href="/users/toEdit" class="MenuButton">Edit account data</a><br>
+<br>

@@ -1,0 +1,20 @@
+<div class="Member">
+    <span style="color:#dd8800"> Имя</span>: <a
+        href="{{ UserBank }}{{ groupAdminMembership.member.username }}">{{ groupAdminMembership.member.username }}</a>
+    <br><span style="color:#dd8800"> Роль</span>: {{ groupAdminMembership.role }}
+    <br><span style="color:#dd8800"> Дата вступления</span>: {{ groupAdminMembership.registration_date }}
+    <br><span style="color:#dd8800"> Контактная информация</span>: {{ groupAdminMembership.member.email }}
+</div>
+<hr>
+{% for relation in memberships_without_admin %}
+    <div class="Member">
+        <br><span style="color:#dd8800">  Имя</span>: <a href="{{ UserBank }}{{ relation.member.username }}">{{ relation.member.username }}</a> <br>
+        <br><span style="color:#dd8800">  Роль</span>: {{ relation.role }}
+        <br><span style="color:#dd8800">  Статус</span>: {{ relation.status }}
+        <br><span style="color:#dd8800">  Стал членом группы</span>: {{ relation.registration_date }}
+        <div style="color:#dd8800">
+            Контактная информация: {{ relation.member.email }}
+        </div>
+    </div>
+    <hr>
+{% endfor %}

@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<div style="width:100% ;">
+    <img class="imgLogo" src="{% static group.logo.url %}">
+
+    <div class="header">
+        <div><span>Название: {{ group.name }}</span></div>
+        <div><span>Категория:  {{ group.category }} </span></div>
+        <div><span>Дата публикации: {{ group.pub_date }}</span></div>
+        <div><span>Состояние : {{ group.status }}</span></div>
+        <div><span>Дата релиза/окончания этапа: {{ group.release_date }}</span></div>
+    </div>
+</div>
+<div>
+    <h4>Концепция проекта:</h4>
+    <div style="width:400px;word-break: break-all; " >
+        <p>{{ group.describe }}</p>
+    </div>
+</div>

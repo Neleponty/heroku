@@ -1,0 +1,22 @@
+.RightPanel{
+    float: left;
+    width:85%;
+    padding :5px;
+    font: 10pt arial;
+    border :1px solid #555555;
+    border-radius: 8px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    overflow: hidden;
+
+}
+.scroll {
+    float:right;
+}
+
+a{
+    text-decoration: none;
+}
+.Member{
+    padding-top:5px;
+    padding-bottom:5px;
+}

@@ -1,0 +1,12 @@
+{% if query %}
+    {% for result in page.object_list %}
+        {% include 'groups/search_components/query_success.html' %}
+    {% empty %}
+        {% include 'groups/search_components/empty_query.html' %}
+    {% endfor %}
+    {% if page.has_previous or page.has_next %}
+        {% include 'groups/search_components/pervious_template.html' %}
+    {% endif %}
+{% else %}
+    {% include 'groups/search_components/input_error.html' %}
+{% endif %}

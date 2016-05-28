@@ -1,0 +1,21 @@
+{% extends "page_base.html" %}
+
+{% block head %}
+    {{ block.super }}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "design_files/css/ProjectList.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "design_files/css/SearchForm.css" %}"/>
+    <link href="../stpProject/static/design_files/css/carousel.css" rel="stylesheet">
+{% endblock %}
+
+{% block body_top%}
+ {% include 'components/carousel.html' %}
+{% endblock %}
+
+{% block mainContentBox %}
+    {% include 'components/second_menu.html' %}
+
+    <div class="TopList">
+        {% include "projects/groups_short_describe.html" %}
+    </div>
+{% endblock %}

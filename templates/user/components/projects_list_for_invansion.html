@@ -1,0 +1,6 @@
+{% extends 'user/components/projects_list.html' %}
+{% block additional_field %}
+{{ block.super }}
+    <br>
+    <span>Статус проекта: {{ membership.project.status }}</span>
+{% endblock %}

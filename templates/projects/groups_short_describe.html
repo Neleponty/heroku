@@ -1,0 +1,8 @@
+{% if shortGroups.count == 0 %}
+    {% include 'empty_query.html' %}
+{% else %}
+    {% for shortGroup in shortGroups %}
+        {% include 'projects/components/list_item.html' %}
+    {% endfor %}
+    <button onclick="getTop({{ bottom }},{{ top }},$(this).parent(),'projects/')">Показать следующие 10</button>
+{% endif %}

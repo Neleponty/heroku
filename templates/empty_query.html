@@ -1,0 +1,8 @@
+
+<h1>{{ empty_message }} </h1>
+{% if user.is_authenticated %}
+    <h2><a href="/group/registry/">Будьте первым! Зарегистрируйте свою группу</a></h2>
+    {% else %}
+     <h2><a href="/users/login/">Будьте первым! Войдите в личный кабинет</a></h2>
+     <h2><a href="/users/registry/">Зарегистрируйтесь</a></h2>
+{% endif %}

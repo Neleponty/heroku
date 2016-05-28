@@ -1,0 +1,30 @@
+{% extends "page_base.html" %}
+{% block head %}
+    {{ block.super }}
+    {% load staticfiles %}
+{% endblock %}
+
+{% block SearchBlock %}
+{% endblock %}
+
+{% block Search %}
+{% endblock %}
+
+{% block mainContentBox %}
+
+    <h3>Участник проектов:</h3>
+    <ul>
+        {% include 'user/components/projects_list.html' %}
+    </ul>
+    <h3>Ваши отклики</h3>
+    <ul>
+        {% for vacancy in vacancies%}
+            <li>
+                <span><a href="{{ GroupBank }}{{ vacancy.project.name }}">
+                    {{ vacancy.project.name }}
+                </a></span>
+                 <span> Статус проекта: {{ vacancy.project.status }}</span>
+            </li>
+        {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,73 @@
+.MessagePostingBox{
+    background:#000000;
+    width:60%;
+    height: 200px;
+    padding-top: 20px;
+    padding-left:10px;
+}
+li{
+    float:left;
+}
+.inputMessage{
+    width: 97%;
+    height: 70%;
+    margin:5px;
+}
+.hiddenFileInput{
+    margin-left:3000px;
+
+}
+
+.ProgressBox{
+    border :1px solid black;
+    background: #f0f0f0;
+
+}
+.Docs{
+    border :1px solid black;
+    background: #f0f0f0;
+
+
+}
+
+.Content{
+  padding :5%;
+  background :#cccccc;
+  width:90%;
+  float:left;
+}
+.imgLogo{
+    float:left;
+    margin-right:5px;
+    width : 100px;
+    height: 100px;
+}
+.header{
+    padding-left:2px;
+
+}
+.Describe{
+    padding :10px;
+    float:left;
+    width:100%;
+    }
+h3{
+    color:#232323;
+}
+ul {
+  list-style-image: linear-gradient(#dd6600 0, #dd8800 50%, #dd8800 50%);
+}
+li {
+  font-size: 20px;
+  color: #ff9010 ;
+  padding-left: 10px;
+}
+.ProjectBox{
+    padding:10px;
+    background:#f5f5f5;
+    border:1px solid black;
+    border-radius: 20px;
+}
+h1{
+    color:#ff5510;
+}

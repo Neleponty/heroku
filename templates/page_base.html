@@ -1,0 +1,51 @@
+﻿<html>
+
+<head>
+    {% block head %}
+        {% load staticfiles %}
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="{% static "scripts/jquery-2.2.2.js" %}"></script>
+        {% load bootstrap3 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <link rel="stylesheet" type="text/css" href="{% static "design_files/css/page.css" %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static "design_files/css/Footer.css" %}"/>
+
+
+    {% endblock %}
+</head>
+
+<body>
+ {% include 'components/menu_bar.html' %}
+ {% block body_top %}
+ {% endblock %}
+<div class="GlobalMargin">
+    {% load staticfiles %}
+
+    <div class="ContentBox">
+        <div class="rightDiv">
+            <div class="rightDivFixed">
+                <div class="rightInner">
+                    <div class="header"><font color="rgb(4, 133, 126)" size="4">Информация о пользователе</font></div>
+                    <div style="padding:5px">
+                        {% block actionBar %}
+                            {{ right_bar_template }}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="leftDiv">
+            {% block mainContentBox %}
+            {% endblock %}
+        </div>
+    </div>
+    <hr>
+    <div class="Footer">
+        {% block footer %}
+            <h1>Footer</h1>
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

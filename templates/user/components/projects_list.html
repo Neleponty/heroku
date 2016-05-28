@@ -1,0 +1,11 @@
+        {% for membership in memberships %}
+            <li>
+                <a href="{{ GroupBank }}{{ membership.project.name }}">
+                    <span>{{ membership.project.name }} </span>
+                </a>
+                <span> Роль: {{ membership.status }}</span>
+                {% block additional_field %}
+                {% endblock %}
+
+            </li>
+        {% endfor %}

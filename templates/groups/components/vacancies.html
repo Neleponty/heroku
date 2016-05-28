@@ -1,0 +1,14 @@
+{% block inform %}
+    {% for vacancy in vacancies %}
+        <div>
+            {% load staticfiles %}
+            {% include 'vacancies/components/owner_head.html' %}
+            {% include 'vacancies/components/base_info.html' %}
+        </div>
+        <button id="{{ vacancy.pk }}" onclick="loadInf(this)">Посмотреть отклики:{{ vacancy.feedback_count }} </button>
+        <a href="/vacancies/editing">Редактировать</a>
+
+    {% endfor %}
+{% endblock %}
+{% block script %}
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'projects/groups_base.html' %}
+{% load staticfiles %}
+
+{% block daysEvent %}
+    <h1>Последнее сообщение</h1>
+    <div class="SingleMessage">
+        <div class="DecorBox"></div>
+        <span>message text : {{ DayEvent.text }}</span> <a href="/group/edit/events?groupName={{ group.name }}"
+                                                           style="float:right">Редактировать</a>
+        <br>
+        messageData : {{ DayEvent.date }}<br>
+    </div>
+    <br>
+{% endblock %}
+<!-- First tab -->
+{% block aboutProject %}
+    <div id="tab1" class="tabset_content">
+        <h2 class="tabset_label">О Проекте</h2>
+        <div class="AboutProjectPage">
+            <div id="tabs_content">
+                <div class="concrete_tab">
+                    <hr>
+                    <h3>Описание</h3>
+                    <a href="/group/edit/base?groupName={{ group.name }}" style="float:right">Редактировать</a>
+
+                    <div class="Describe">
+                        <h1> {{ group.name }}</h1>
+                        <div style="border-bottom: 1px solid black">
+                        </div>
+                        {% include 'projects/components/head.html' %}
+                    </div>
+
+                    <h3> Документы </h3>
+                        <a href="/group/edit/doc?groupName={{ group.name }}"> Редактировать</a>
+                        {% include 'projects/components/documents.html' %}
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+<!--Second one-->
+{% block members %}
+    <div id="tab2" class="tabset_content">
+        <h2 class="tabset_label">Участники</h2>
+
+        <div class="concrete_tab">
+
+            <div class="members"></div>
+            <div id="infoWindow">
+                <h3>Участники</h3>
+                <a href="/group/edit/members?groupName={{ group.name }}"> Редактировать</a>
+
+                {% include 'projects/components/members.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<!-- Third -->
+
+{% block vacancies %}
+    <div id="tab4" class="tabset_content">
+        <h2 class="tabset_label">Вакансии</h2>
+        <a href="/vacancy/createVacancy?groupName={{ group.name }}"> Оформить вакансию</a>
+
+        <div class="concrete_tab">
+            <div class="ShortList">
+                <hr>
+                {% include 'projects/components/vacancy_onwer_vision.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

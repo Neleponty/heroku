@@ -1,0 +1,39 @@
+{% extends "page_base.html" %}
+{% block head %}
+    {{ block.super }}
+    {% load staticfiles %}
+{% endblock %}
+
+{% block SearchBlock %}
+{% endblock %}
+
+{% block Search %}
+{% endblock %}
+
+{% block mainContentBox %}
+    {% load staticfiles %}
+    <h1>{{ membership.member.first_name }}</h1>
+    <img width="100px" height="100px" src="{% if membership.member.avatar.url|length > 0 %}
+                    {{ membership.member.avatar.url }}
+                {% else %}
+                    {% static "design_files/resources/default.jpg" %}
+                {% endif %} ">
+    <br>
+    <span style="margin-left:10px">date_joined:{{ membership.member.date_joined }}</span><br>
+    <span style="margin-left:10px">email:{{ membership.member.email }}</span><br>
+    <a href="/users/toEdit" class="MenuButton">Edit account data</a><br>
+    <br>
+
+    <h3>Участник проектов:</h3>
+    <ul>
+        {% for group in groups %}
+            <li>
+                <a href="{{ GroupBank }}{{ membership.project.name }}">
+                    <span>{{ membership.project.name }} </span>
+                </a>
+                {{ group.status }}
+            </li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}
