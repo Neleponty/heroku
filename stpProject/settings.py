@@ -158,7 +158,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = rel_project('src/public/static')
 STATICFILES_DIRS = [
-    rel_project("static")
+    "static"
 ]
 
 MEDIA_ROOT = rel_project('src/public/media')
