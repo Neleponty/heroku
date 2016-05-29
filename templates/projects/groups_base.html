@@ -1,0 +1,54 @@
+{% extends 'page_base.html' %}
+
+{% block head %}
+    {{ block.super }}
+
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static "scripts/jquery-2.2.2.js" %}"></script>
+    <link href=" {% static "design_files/css/EventMessage.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "design_files/css/Content.css" %}">
+
+{% endblock %}
+
+{% block Search %}
+{% endblock %}
+
+{% block mainContentBox %}
+
+    {% block daysEvent %}
+    {% endblock %}
+
+    {% block divider %}
+        <button style="float:left" onclick="displayToSpace($('div#tab1').html())">О Проекте</button>
+        <button style="float:left" onclick="displayToSpace($('div#tab2').html())">Участники</button>
+        <button style="float:left" onclick="displayToSpace($('div#tab4').html())">Вакансии</button>
+        <script>
+            $(document).ready(
+                    function () {
+                        $('div#tab1').hide();
+                        $('div#tab2').hide();
+                        $('div#tab3').hide();
+                        $('div#tab4').hide();
+                        displayToSpace($('div#tab1').html());
+                    }
+            );
+
+            function displayToSpace(html) {
+                $('div.space').html(html)
+            }
+
+        </script>
+    {% endblock %}
+    <div class="Content">
+        <div class="space"></div>
+        <!--tabs -->
+        {% block aboutProject %}
+        {% endblock %}
+        {% block members %}
+        {% endblock %}
+
+        {% block vacancies %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

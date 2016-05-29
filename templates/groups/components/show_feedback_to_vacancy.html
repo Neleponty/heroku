@@ -1,0 +1,5 @@
+{% for member in members %}
+    <div>
+        <span>Ссылка: </span><a href="{{ UserBank }}{{ member.username }}">{{ member.email }}</a>
+    </div>
+{% endfor %}

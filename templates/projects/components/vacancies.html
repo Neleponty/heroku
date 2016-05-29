@@ -1,0 +1,12 @@
+{% block inform %}
+    {% for vacancy in vacancies %}
+        <div>
+            {% load staticfiles %}
+            {% include 'vacancies/components/owner_head.html' %}
+            {% include 'vacancies/components/base_info.html' %}
+        </div>
+        <span>Отклики:{{ vacancy.feedback_count }} </span>
+    {% endfor %}
+{% endblock %}
+{% block script %}
+{% endblock %}

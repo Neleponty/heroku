@@ -1,0 +1,28 @@
+<div id="1Left" style="float:left;width:46%;padding:2px;border:1px solid black;min-height: 300px; ">
+    {% for vacancy in vacancies %}
+        <div>
+            {% load staticfiles %}
+            {% include 'vacancies/components/owner_head.html' %}
+            {% include 'vacancies/components/base_info.html' %}
+        </div>
+        <button id="{{ vacancy.pk }}" onclick = "loadInf(this)">Посмотреть отклики:{{ vacancy.feedback_count }} </button>
+
+    {% endfor %}
+</div>
+
+<div id="2Right" style="float:right;width:46%;padding:2px;border:1px solid black;min-height: 300px;">
+</div>
+<script>
+    function loadInf(self) {
+        $.ajax({
+            url: "/vacancy/lookAtFeedback?vacancyId=" + $(self).attr('id'),
+            type: "GET",
+            success: function (data) {
+                if ((data['success'])) {
+                    $('div#2Right').html(data['content']);
+                }
+
+            }
+        })
+    }
+</script>

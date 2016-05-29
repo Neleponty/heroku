@@ -1,0 +1,15 @@
+   <div class="MarkedVacancy" >
+
+        {% load staticfiles %}
+        {% include 'vacancies/components/marked_head.html' %}
+
+        {{ shortGroup.title }}
+        <div class="SecondHeader">
+            {% include 'vacancies/components/base_info.html' %}
+        </div>
+
+        <div class="DescribeBox">
+            {% include 'vacancies/components/describe_block.html' %}
+        </div>
+        {% include 'vacancies/components/bottom.html' %}
+    </div>

@@ -1,0 +1,31 @@
+{% extends "page_base.html" %}
+{% block head %}
+    {{ block.super }}
+    {% load staticfiles %}
+{% endblock %}
+
+{% block SearchBlock %}
+{% endblock %}
+
+{% block Search %}
+{% endblock %}
+
+{% block mainContentBox %}
+    {% load staticfiles %}
+    <h2>Информация о пользователе</h2>
+    <h3>{{ cabin_owner.first_name }}</h3>
+    <img width="100px" height="100px" src="{% if cabin_owner.avatar.url|length > 0 %}
+                    {{ cabin_owner.avatar.url }}
+                {% else %}
+                    {% static "design_files/resources/default.jpg" %}
+                {% endif %} ">
+    <br>
+    <span style="margin-left:10px">date_joined: {{ cabin_owner.date_joined }}</span><br>
+    <span style="margin-left:10px">email: {{ cabin_owner.email }}</span><br>
+    <br>
+
+    <h3>Участник проектов:</h3>
+    <ul>
+        {% include 'user/components/projects_list_for_invansion.html' %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<img class="ProjectLogo" style="width:80px;height:80px;"
+     src="{% if vacancy.project.logo.url|length == 0 %}
+                                    {% static "design_files/resources/default.jpg" %}
+                          {% else %}
+                                    {{ vacancy.project.logo.url }}
+                          {% endif %}">
+{{ vacancy.short_describe }}
+<br>
+<br>

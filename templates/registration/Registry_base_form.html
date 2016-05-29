@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    {% load staticfiles %}
+    {% block head_links%}
+
+    <script type="text/javascript" src="{% static "scripts/jquery-2.2.2.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "design_files/css/FormStyle.css" %}"/>
+    {% endblock %}
+</head>
+<body>
+<!DOCTYPE html>
+<section class="container">
+    {% block content   %}
+    {% endblock %}
+</section>
+{% block script %}
+    <script>
+        function reload() {
+            $('form').submit(function (e) {
+                s();
+                e.preventDefault();
+            });
+        }
+
+        $('form').submit(function (e) {
+            s();
+            e.preventDefault();
+        });
+
+        function s() {
+            $.ajax({
+                url: $('form').attr('action'),
+                type: "POST",
+                data: new FormData($('form')[0]),
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (!(data['success'])) {
+                        // Here we replace the form, for the
+                        $('form').replaceWith(data['form_html']);
+                        {%block processing %}
+                        {% endblock %}
+                        reload();
+                    }
+                    else {
+                        // Here you can show the user a success message or do whatever you need
+                        $('form').find('.success-message').show();
+                        alert('{{ success_message }}');
+                        window.location.replace('{{ replace_to_url }}')
+                    }
+                },
+                error: function () {
+                    $('form').find('.error-message').show()
+                }
+            });
+        }
+    </script>
+{% endblock %}
+</body>
+</html>

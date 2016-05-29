@@ -1,0 +1,32 @@
+        <div class="ProjectBox">
+            {% load staticfiles %}
+            <div class="PreDescribe">
+                <a href="{{ GroupBank }}{{ shortGroup.name }}">
+                    <font size="5" face="Arial">{{ shortGroup.name }}</font></a></div>
+            <div style="float:right">
+                <progress style="float:right" max="100" value="{{ shortGroup.rate }}">
+                </progress>
+            </div>
+
+            {{ shortGroup.title }}
+            <div class="SecondHeader">
+                <div style="color: #eea236; ">Категория: {{ shortGroup.category }}</div>
+                <div style="color: #eea236; ">Опубликовано: {{ shortGroup.pub_date }}</div>
+                <div style="color: #eea236; ">До релиза: {{ shortGroup.time_before_release }}</div>
+            </div>
+
+            <div class="DescribeBox">
+                <img class="ProjectLogo"
+                     src="{% if shortGroup.logo.url|length == 0 %}
+                            {% static "design_files/resources/default.jpg" %}
+                          {% else %}
+                            {{ shortGroup.logo.url }}
+                          {% endif %}">
+                <div class="ProjectDescribe" style="width:400px;word-break: break-all;"> {{ shortGroup.describe }}
+                </div>
+            </div>
+            <div class="ProjectPostDescribe">Статус: {{ shortGroup.status }}</div>
+            <br>
+            <div class="ProjectPostDescribe">Создатель: {{ shortGroup.get_admin.first_name }}</div>
+
+        </div>

@@ -1,0 +1,12 @@
+{% if query %}
+    {% for result in page.object_list %}
+        {% include 'vacancies/search_components/query_success.html' %}
+    {% empty %}
+        {% include 'vacancies/search_components/empty_query.html' %}
+    {% endfor %}
+    {% if page.has_previous or page.has_next %}
+        {% include 'vacancies/search_components/pervious_template.html' %}
+    {% endif %}
+{% else %}
+    {% include 'vacancies/search_components/input_error.html' %}
+{% endif %}

@@ -1,0 +1,37 @@
+{% extends "page_base.html" %}
+{% block head %}
+    {{ block.super }}
+    {% load staticfiles %}
+{% endblock %}
+
+{% block SearchBlock %}
+{% endblock %}
+
+{% block Search %}
+{% endblock %}
+
+{% block mainContentBox %}
+
+    <h3>Участник проектов:</h3>
+    <ul>
+        {% for membership in memberships %}
+            <li>
+                <a href="{{ GroupBank }}{{ membership.project.name }}">
+                    <span>{{ membership.project.name }} </span>
+                </a>
+                <span> Роль: {{ membership.status }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+    <h3>Ваши отклики</h3>
+    <ul>
+        {% for vacancy in vacancies%}
+            <li>
+                <span><a href="{{ GroupBank }}{{ vacancy.project.name }}">
+                    {{ vacancy.project.name }}
+                </a></span>
+                 <span> Статус проекта: {{ vacancy.project.status }}</span>
+            </li>
+        {% endfor %}
+</ul>
+{% endblock %}

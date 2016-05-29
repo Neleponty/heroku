@@ -1,0 +1,34 @@
+<div>
+    {% load crispy_forms_tags %}
+    {% crispy search_form %}
+        <script>
+        $('document').ready(function(){
+            $('form').submit(function (e) {
+                s();
+                e.preventDefault();
+            });
+        });
+        function s() {
+            $.ajax({
+                url: $('form').attr('action'),
+                type: "POST",
+                data: new FormData($('form')[0]),
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data['success']){
+                        $('div.TopList').html(data['result'])
+                    }
+                    else{
+                        $('form').replaceWith(data['form']);
+                    }
+                },
+                error: function () {
+                    <!-- any -->
+                }
+            });
+        }
+    </script>
+
+</div>

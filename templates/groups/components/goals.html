@@ -1,0 +1,20 @@
+<div class="ProgressBox ">
+    <h2>Progress</h2>
+
+    <progress style="margin-left:{{ group.rate }}%" value="10" max="100"></progress>
+    <ul>
+        {% for goal in goals %}
+            {% if goal.done %}
+
+                <li><strike>{{ goal.name }}</strike></li>
+                {{ goal.result_status }}
+
+            {% else %}
+                <li>{{ goal.name }}</li>
+            {% endif %}
+
+            <span>{{ goal.describe }} {{ goal.start_time }} {{ goal.announce_end_time }}</span>
+        {% endfor %}
+    </ul>
+</div>
+           

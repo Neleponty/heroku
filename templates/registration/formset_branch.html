@@ -1,0 +1,16 @@
+{% extends 'registration/Registry_base_form.html' %}
+
+{% block content %}
+    <div id="content" class="container">
+        <h1 class="state_header ">{{ registration_title }}</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                {% block inform %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+{% for doc in docs %}
+    <div class="Docs">
+        <p> Описание:{{ doc.describe }} </p>
+        {% if doc.doc_src %}
+            <span>   {{ doc.name }} <a href="download{{ doc.doc_src.url }}"> скачать </a> </span>
+        {% endif %}
+    </div>
+{% endfor %}
