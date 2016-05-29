@@ -85,6 +85,8 @@ class FormToProjectRegistration(CustomView):
             return True
         return False
 
+class DeleteProject(View):
+    def get(self,request,*args,**kwargs):
 
 # top list of projects on main page
 class LoadTopList(View):
@@ -264,3 +266,4 @@ class LoadEventForm(CustomView):
         c.update(csrf(request))
         form_html = render_crispy_form(form, context=c)
         return {'success': False, 'form_html': form_html}
+
